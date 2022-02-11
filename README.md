@@ -35,4 +35,3 @@ hello-world                     latest    feb5d9fea6a5   4 months ago     13.3kB
 // Команда docker inspect <u_container_id> описывает конфигурацию контейнера.
 // Команда docker inspect <u_image_id> описывает конфигурацию образа.
 ```
- 
