@@ -1,8 +1,0 @@
-REPOSITORY                      TAG       IMAGE ID       CREATED          SIZE
-timoschenkoaa/ubuntu-tmp-file   latest    6de62e3792d4   47 seconds ago   63.2MB
-ubuntu                          18.04     dcf4d4bef137   8 days ago       63.2MB
-nginx                           latest    c316d5a335a5   2 weeks ago      142MB
-hello-world                     latest    feb5d9fea6a5   4 months ago     13.3kB
-
-// Команда docker inspect <u_container_id> описывает конфигурацию контейнера.
-// Команда docker inspect <u_image_id> описывает конфигурацию образа.
