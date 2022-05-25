@@ -72,7 +72,7 @@ hello-world                     latest    feb5d9fea6a5   4 months ago     13.3kB
  - Добавлены экспортеры для сбора метрик 
  - Изучен ui-интерфейс Prometheus 
  - Создана сборка Prometheus в Docker-образ 
- - Собранные образы запушены в Docker-Hub https://hub.docker.com/repository/docker/sdomnicapus
+ - Собранные образы запушены в Docker-Hub https://hub.docker.com/repository/docker/xka1n
 
 ### Задание: Добавить в Prometheus мониторинг MongoDB 
 Добавлен экспортер https://github.com/percona/mongodb_exporter
