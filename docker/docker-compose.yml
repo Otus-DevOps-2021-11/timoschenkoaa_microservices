@@ -14,14 +14,34 @@ services:
   ui:
     #build: ../src/ui
     image: ${USERNAME}/ui
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     ports:
       - ${UI_PORT}:${UI_PORT}/tcp
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
+  
     networks:
       - front_net
   
   post:
-    build: ../src/post-py
-    image: ${USERNAME}/post
+    image: ${USER_NAME}/post
+    environment:
+      - POST_DATABASE_HOST=post_db
+      - POST_DATABASE=posts
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
+    depends_on:
+      - post_db
+    ports:
+      - "5000:5000"
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.post
     networks:
       - back_net
       - front_net
@@ -29,6 +49,8 @@ services:
   comment:
     #build: ../src/comment
     image: ${USERNAME}/comment
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       - back_net
       - front_net
@@ -62,12 +84,12 @@ services:
       - back_net
       - front_net
 
-  percona-mongodb-exporter:
-    image: ${USERNAME}/percona-mongodb-exporter
-    environment:
-      - MONGODB_URI=mongodb://post_db:27017
-    networks:
-      - back_net    
+  # percona-mongodb-exporter:
+  #   image: ${USERNAME}/percona-mongodb-exporter
+  #   environment:
+  #     - MONGODB_URI=mongodb://post_db:27017
+  #   networks:
+  #     - back_net    
 
 volumes:
   post_db:
