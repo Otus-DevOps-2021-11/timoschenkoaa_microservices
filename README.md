@@ -114,3 +114,14 @@ hello-world                     latest    feb5d9fea6a5   4 months ago     13.3kB
 
 ## Демонстрация работы приложения
 ![Image text](kubernetes/kuber-2.jpg)
+
+
+# ДЗ Kubernetes. Networks,Storages.
+
+## Было выполнено
+
+- Поднял новый кластер, развернул заново все сервисы
+- Создал pv, pvc 
+- Сделал динамическое создание pvc
+- Задеплоил ингресс Inginx ( не нравится он мне, Trarfik лучше)
+- Поигрался с istio
